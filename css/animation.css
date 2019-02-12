@@ -1,0 +1,69 @@
+/* banner  Button animation */
+@keyframes btn-anim{
+
+    0%{
+        opacity:0;
+
+    }
+    100%{
+        opacity:1;
+    }
+}
+/*  banner heading animation */
+@keyframes banner-anim{
+    0%{
+top:0px;
+    }
+100%{
+    top:250px;
+    }
+}
+/* banner paragraph animation */
+@keyframes bannerp-ani2{
+    0%{
+        left:-900px;
+    }
+100%{
+    left:0px;
+    }
+}
+@keyframes client-ani{
+    0%{
+        top:-500px;
+    }
+    100%{
+        top:0px;
+    }
+}
+
+ .scale:hover{
+    transform:scale(1.1,1.1);
+    transition:0.23s all;
+}
+/*
+.scale:nth-child(1){
+    /* background:#7d5fff; */
+    /* border:1px solid black; */
+/* } */
+/* .scale:nth-child(1):hover{ */
+     /* background:#7d5fff;   */
+    
+/* }
+.scale:nth-child(2){
+    background:#7d5fff;
+}
+.scale:nth-child(3){
+    background:#7d5fff;
+}
+.scale:nth-child(4){
+    background:#7d5fff;
+}
+.scale:nth-child(5){
+    background:#7d5fff;
+}
+.scale:nth-child(6){
+    background:#7d5fff;
+} */
+.card{
+    display:grid;
+}
