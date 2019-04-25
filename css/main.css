@@ -1,4 +1,4 @@
-* {
+@font-face * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -21,11 +21,12 @@ p {
 
 .logo {
   position: relative;
+  color: white !important;
 }
 
 .hamburger {
+  width: 100%;
   display: none;
-  background: red;
   position: relative;
   right: 200px;
   top: 0;
@@ -36,36 +37,109 @@ p {
   color: #42DE8A;
 }
 
-.outer-banner {
-  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), url("../assets/bannerimg.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+.header-banner-outer {
+  position: relative;
   width: 100%;
   height: 100vh;
-  color: #ffffff;
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .mobile-nav {
+    display: block;
+    z-index: 99;
+  }
+}
+
+.mobile-nav .fa-bars {
+  padding: 5px;
+  padding-top: 10px;
+}
+
+.banner-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.outer-banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .outer-banner {
+    margin-bottom: 0;
+  }
 }
 
 .inner-banner {
+  padding-top: 230px;
   margin: auto;
   text-align: center;
   width: 80%;
-  padding-top: 40px;
-  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media (max-width: 700px) {
+  .inner-banner {
+    padding-top: 0;
+  }
+}
+
+.inner-banner p {
+  color: grey;
+}
+
+.svg-banner {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-content-right {
+  width: 400px;
+  height: 400px;
+  margin-top: -44px;
+}
+
+.banner-content-right img {
+  width: 100%;
+  height: 100%;
 }
 
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 99;
+  width: 80%;
+  margin: auto;
+  background-color: #df0e62;
 }
 
 .header .logo {
@@ -82,8 +156,14 @@ p {
   opacity: 0.6;
 }
 
+.header-outer {
+  width: 100%;
+  position: fixed;
+  background-color: #df0e62;
+}
+
 .nav ul {
-  padding-top: 7px;
+  padding-top: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -150,11 +230,11 @@ p {
 }
 
 .btn {
-  padding: 10px 40px;
+  padding: 12px 50px;
   outline: none;
   border: none;
-  background-image: -webkit-gradient(linear, left top, right top, from(#DD5E89), color-stop(50%, #F7BB97), to(#DD5E89));
-  background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 50%, #DD5E89 100%);
+  background: #df0e62;
+  font-size: 15px;
   background-size: 200%,auto;
   color: white;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -169,8 +249,8 @@ p {
 }
 
 .btn_banner {
-  border: 2px solid #42DE8A;
-  color: #42DE8A;
+  border: 0.5px solid #df0e62;
+  color: black;
   outline: none;
   position: relative;
   background: transparent;
@@ -187,7 +267,6 @@ p {
           animation-fill-mode: forwards;
   -webkit-animation-iteration-count: 1;
           animation-iteration-count: 1;
-  z-index: 1;
   overflow: hidden;
 }
 
@@ -200,8 +279,7 @@ p {
           transform: translate(-50%, -50%);
   height: 100%;
   width: 0%;
-  z-index: -1;
-  background: #42DE8A;
+  background: #df0e62;
   -webkit-transition: 1s all;
   transition: 1s all;
 }
@@ -212,7 +290,6 @@ p {
 
 .btn_banner:hover {
   color: white;
-  border-radius: 5px;
   -webkit-transition: 2s all;
   transition: 2s all;
   opacity: 1;
@@ -223,24 +300,7 @@ p {
 h1 {
   font-size: 50px;
   letter-spacing: 2px;
-  height: 330px;
-  -webkit-animation-name: banner-anim;
-          animation-name: banner-anim;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  position: relative;
-}
-
-.bannerp-ani2 {
-  position: relative;
-  -webkit-animation-name: bannerp-ani2;
-          animation-name: bannerp-ani2;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  padding-bottom: 44px;
 }
 
 .client-outside {
@@ -253,6 +313,10 @@ h1 {
   width: 80%;
   margin: auto;
   text-align: center;
+}
+
+.client-inside p {
+  color: grey;
 }
 
 .client-intro {
@@ -294,7 +358,6 @@ img {
 .services-outside {
   width: 100%;
   height: auto;
-  background: whitesmoke;
 }
 
 .services-inside {
@@ -304,10 +367,14 @@ img {
   padding-top: 20px;
 }
 
+.services-inside p {
+  color: grey;
+}
+
 .services-inside .card-container {
   display: -ms-grid;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
   -ms-grid-columns: (1fr)[3];
       grid-template-columns: repeat(3, 1fr);
   -ms-grid-rows: auto;
@@ -331,7 +398,6 @@ img {
 .services-inside .card {
   text-align: center;
   background: white;
-  margin: 20px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -342,10 +408,9 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 0px 12px;
   color: #222222;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .services-inside .card .card-icon {
@@ -354,15 +419,20 @@ img {
 
 .services-inside .card .card-article p {
   padding: 40px 0px;
+  color: grey;
 }
 
 .services-inside .card h3 {
   font-size: 17px;
-  margin-top: 50px;
 }
 
 .services-inside .card p {
   font-size: 15px;
+}
+
+.services-inside .card:hover {
+  -webkit-box-shadow: -1px 7px 169px 0px #e8e8e8;
+          box-shadow: -1px 7px 169px 0px #e8e8e8;
 }
 
 .services-inside .service-icon {
@@ -395,7 +465,7 @@ img {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #42DE8A;
+  background: #df0e62;
   -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 55%, 0 100%, 0 0);
           clip-path: polygon(50% 0%, 100% 0, 100% 55%, 0 100%, 0 0);
   position: absolute;
@@ -406,6 +476,11 @@ img {
   margin: auto;
   text-align: center;
   padding-top: 20px;
+}
+
+.ceo-content p {
+  color: whitesmoke;
+  opacity: 0.7;
 }
 
 .ceo-img figcaption {
@@ -444,6 +519,11 @@ img {
   height: 100%;
 }
 
+.photo:hover img {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+
 .photo-article {
   width: 50%;
   color: #323332;
@@ -469,7 +549,7 @@ img {
 
 .testonomy-outer {
   width: 100%;
-  background: #F0F0F0;
+  background: #ffffff;
   height: auto;
   margin-top: 100px;
 }
@@ -513,8 +593,8 @@ img {
   background: white;
   width: 315px;
   height: 425px;
-  -webkit-box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 7px 169px 0px #e8e8e8;
+          box-shadow: -1px 7px 169px 0px #e8e8e8;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -569,29 +649,30 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 40vh;
+  height: auto;
 }
 
 .data-container .item {
   font-family: futur;
   width: 200px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
 }
 
 .data-container .item h5 {
-  font-family: futur;
+  font-family: futura;
   font-size: 66px;
   font-weight: 100;
+  margin-bottom: -20px;
 }
 
 .data-container .item p {
   color: #42DE8A;
+  font-family: futura;
 }
 
 .team-outside {
@@ -662,7 +743,7 @@ img {
 
 .newsletter-outer {
   width: 100%;
-  background: #42DE8A;
+  background: #df0e62;
   height: auto;
   padding-bottom: 60px;
 }
@@ -713,8 +794,12 @@ form {
   padding: 10px;
 }
 
+.input-container .input-field:focus {
+  border-color: red;
+}
+
 .input-container .icon {
-  color: #42DE8A;
+  color: #df0e62;
   text-align: center;
   padding: 10px;
 }
@@ -772,12 +857,13 @@ form {
 .contact-inner .classinput {
   padding: 15px 60px;
   margin: 14px 0px;
-  border: 1px solid grey;
+  border: 1px solid red;
   outline: none;
+  border-radius: 5px;
 }
 
 .contact-inner .classinput:focus {
-  border: 2px solid #117c4f;
+  border: 2px solid black;
 }
 
 .contact-inner figure {
@@ -805,7 +891,7 @@ form {
 .footer-outer {
   width: 100%;
   height: auto;
-  background: #3E67ED;
+  background: #df0e62;
   color: white;
   padding: 100px 0px;
 }
@@ -924,28 +1010,31 @@ form {
     width: 100%;
     display: none;
     z-index: 2;
-    background: black transparent;
   }
   .nav ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    text-align: center;
   }
   .nav ul li {
     padding: 10px 0px;
   }
   .logo {
     width: 100%;
-    background: red;
     position: relative;
   }
   .banner-content {
-    margin-top: 250px;
+    padding-top: 140px;
+    padding-bottom: 100px;
   }
   h1 {
     font-size: 30px;
     letter-spacing: 2px;
+  }
+  .header-banner-outer {
+    height: auto;
   }
   .inner-banner {
     width: 80%;
@@ -1025,5 +1114,42 @@ form {
   iframe {
     width: 100%;
   }
+}
+
+.card .fa {
+  font-size: 50px;
+}
+
+.fa-credit-card-alt, .fa-desktop, .fa-laptop, .fa-google-wallet, .fa-user, .fa-mobile, .fa-user {
+  font-size: 3px;
+  color: #ffda10;
+}
+
+.card:hover .fa-credit-card-alt {
+  color: red;
+}
+
+.card:hover .fa-desktop {
+  color: red;
+}
+
+.card:hover .fa-laptop {
+  color: red;
+}
+
+.card:hover .fa-google-wallet {
+  color: red;
+}
+
+.card:hover .fa-user {
+  color: red;
+}
+
+.card:hover .fa-mobile {
+  color: red;
+}
+
+.card:hover .fa-user {
+  color: red;
 }
 /*# sourceMappingURL=main.css.map */
